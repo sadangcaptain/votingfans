@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Voting dApp</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Voting <br /> dApp</h1>
+    <p>BEST SINGER</P>
+  </header>
+  <content>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <img src="./images/bts.jpg">
+      </li>
+      <li class="vote_name">
+        <p>BTS</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <img src="./images/eminem.jpg">
+      </li>
+      <li class="vote_name">
+        <p>Eminem</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <img src="./images/katy.jpeg">
+      </li>
+      <li class="vote_name">
+        <p>Katy Perry</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <img src="./images/Michael.jpg">
+      </li>
+      <li class="vote_name">
+        <p>Michael Jackson</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <img src="./images/talyor.jpeg">
+      </li>
+      <li class="vote_name">
+        <p>Talyor Swift</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <img src="./images/ariana.jpg">
+      </li>
+      <li class="vote_name">
+        <p>Ariana Grande</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <img src="./images/one.jpg">
+      </li>
+      <li class="vote_name">
+        <p>One Drection</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <img src="./images/justin.jpg">
+      </li>
+      <li class="vote_name">
+        <p>Justin Bieber</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <div class="color_random_1"></div>
+      </li>
+      <li class="vote_name">
+        <p>PPU</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <div class="color_random_2">
+        </div>
+      </li>
+      <li class="vote_name">
+        <p>gon</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <div class="color_random_3"></div>
+      </li>
+      <li class="vote_name">
+        <p>muuu</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+    <ul class="vote_list">
+      <li class="vote_images">
+        <button>VOTE</button>
+        <div class="color_random_4"></div>
+      </li>
+      <li class="vote_name">
+        <p>jiyoung</p>
+      </li>
+      <li class="vote_number">
+        <p>100,000</p>
+      </li>
+    </ul>
+  </content>
+<footer>
+  <button id="popup_open" class="add">
+    <svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Desktop-HD" transform="translate(-1321.000000, -915.000000)" fill="#FFFFFF">
+                <g id="button" transform="translate(1299.000000, 895.000000)">
+                    <path d="M40,37 L57,37 L57,39 L40,39 L40,55 L38,55 L38,39 L22,39 L22,37 L38,37 L38,20 L40,20 L40,37 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </svg>
+  </button>
+  <div id="popup_wrap" class="add_box" style="display:none;">
+    <label>Name</label>
+    <input type="text" placeholder="Enter a name" />
+    <button>Add</button>
+  </div>
+
+</footer>
+
+<script>
+var state = "open";
+$(document).ready(function(){
+  $("#popup_open").click(function(){
+    if(state == "open") {
+      $("#popup_wrap").css("display", "block");
+      $("#popup_open").addClass("click");
+      state = "close";
+    }
+   else if(state == "close") {
+     $("#popup_wrap").css("display", "none");
+     $("#popup_open").removeClass("click");
+     state = "open";
+   }
+
+
+  });
+
+});
+</script>
+
+
+</body>
+</html>
