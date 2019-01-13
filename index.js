@@ -56,6 +56,7 @@ function add_table(newCandidateName) {
   cell2.innerHTML = 0;
 
   candidates[new_candidate] = "candidate-" + (_.size(candidates)+1);
+  cell2.id = candidates[new_candidate];
   //console.log("obj length2");
   //console.log(_.size(candidates));
  // console.log(candidates);
@@ -81,7 +82,7 @@ console.log("ready : " + candidateNames.length);
  for(var i=0; i<candidateNames.length; i++) {
   let name = candidateNames[i];
   let val = contractInstance.totalVotesFor.call(name).toNumber();
-console.log("name, val : " + name + "," + val);
+console.log("name, val : " + name + "," + candidates[name], ","+ val);
   $("#" + candidates[name]).html(val);
  }
 });
