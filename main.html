@@ -6,156 +6,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@0.20.4/dist/web3.js"></script>
+<script src="underscore.js"></script>
 </head>
 <body>
   <header>
     <h1>Voting <br /> dApp</h1>
     <p>BEST SINGER</P>
   </header>
-  <content>
+  <content id="my_c_body">
     <ul class="vote_list">
       <li class="vote_images">
-        <button>VOTE</button>
+        <button onclick="voteForCandidate('BTS');" >VOTE</button>
         <img src="./images/bts.jpg">
       </li>
       <li class="vote_name">
         <p>BTS</p>
       </li>
       <li class="vote_number">
-        <p>100,000</p>
+        <p id="candidate-1">0</p>
       </li>
     </ul>
     <ul class="vote_list">
       <li class="vote_images">
-        <button>VOTE</button>
+        <button onclick="voteForCandidate('Eminem');">VOTE</button>
         <img src="./images/eminem.jpg">
       </li>
       <li class="vote_name">
         <p>Eminem</p>
       </li>
       <li class="vote_number">
-        <p>100,000</p>
+        <p id="candidate-2">0</p>
       </li>
     </ul>
     <ul class="vote_list">
       <li class="vote_images">
-        <button>VOTE</button>
+        <button onclick="voteForCandidate('Katy Perry');">VOTE</button>
         <img src="./images/katy.jpeg">
       </li>
       <li class="vote_name">
         <p>Katy Perry</p>
       </li>
       <li class="vote_number">
-        <p>100,000</p>
+        <p id="candidate-3">0</p>
       </li>
     </ul>
     <ul class="vote_list">
       <li class="vote_images">
-        <button>VOTE</button>
+        <button onclick="voteForCandidate('Michael Jackson');">VOTE</button>
         <img src="./images/Michael.jpg">
       </li>
       <li class="vote_name">
         <p>Michael Jackson</p>
       </li>
       <li class="vote_number">
-        <p>100,000</p>
+        <p id="candidate-4">0</p>
       </li>
     </ul>
     <ul class="vote_list">
       <li class="vote_images">
-        <button>VOTE</button>
+        <button onclick="voteForCandidate('Talyor Swift');">VOTE</button>
         <img src="./images/talyor.jpeg">
       </li>
       <li class="vote_name">
         <p>Talyor Swift</p>
       </li>
       <li class="vote_number">
-        <p>100,000</p>
+        <p id="candidate-5">0</p>
       </li>
     </ul>
     <ul class="vote_list">
       <li class="vote_images">
-        <button>VOTE</button>
+        <button onclick="voteForCandidate('Ariana Grande');">VOTE</button>
         <img src="./images/ariana.jpg">
       </li>
       <li class="vote_name">
         <p>Ariana Grande</p>
       </li>
       <li class="vote_number">
-        <p>100,000</p>
+        <p id="candidate-6">0</p>
       </li>
     </ul>
     <ul class="vote_list">
       <li class="vote_images">
-        <button>VOTE</button>
+        <button onclick="voteForCandidate('One Drection');">VOTE</button>
         <img src="./images/one.jpg">
       </li>
       <li class="vote_name">
         <p>One Drection</p>
       </li>
       <li class="vote_number">
-        <p>100,000</p>
+        <p id="candidate-7">0</p>
       </li>
     </ul>
     <ul class="vote_list">
       <li class="vote_images">
-        <button>VOTE</button>
+        <button onclick="voteForCandidate('Justin Bieber');">VOTE</button>
         <img src="./images/justin.jpg">
       </li>
       <li class="vote_name">
         <p>Justin Bieber</p>
       </li>
       <li class="vote_number">
-        <p>100,000</p>
-      </li>
-    </ul>
-    <ul class="vote_list">
-      <li class="vote_images">
-        <button>VOTE</button>
-        <div class="color_random_1"></div>
-      </li>
-      <li class="vote_name">
-        <p>PPU</p>
-      </li>
-      <li class="vote_number">
-        <p>100,000</p>
-      </li>
-    </ul>
-    <ul class="vote_list">
-      <li class="vote_images">
-        <button>VOTE</button>
-        <div class="color_random_2">
-        </div>
-      </li>
-      <li class="vote_name">
-        <p>gon</p>
-      </li>
-      <li class="vote_number">
-        <p>100,000</p>
-      </li>
-    </ul>
-    <ul class="vote_list">
-      <li class="vote_images">
-        <button>VOTE</button>
-        <div class="color_random_3"></div>
-      </li>
-      <li class="vote_name">
-        <p>muuu</p>
-      </li>
-      <li class="vote_number">
-        <p>100,000</p>
-      </li>
-    </ul>
-    <ul class="vote_list">
-      <li class="vote_images">
-        <button>VOTE</button>
-        <div class="color_random_4"></div>
-      </li>
-      <li class="vote_name">
-        <p>jiyoung</p>
-      </li>
-      <li class="vote_number">
-        <p>100,000</p>
+        <p id="candidate-8">0</p>
       </li>
     </ul>
   </content>
@@ -173,10 +126,9 @@
   </button>
   <div id="popup_wrap" class="add_box" style="display:none;">
     <label>Name</label>
-    <input type="text" placeholder="Enter a name" />
-    <button>Add</button>
+    <input id="add_candidate" type="text" placeholder="Enter a name" />
+    <button id="add_button" onclick="add_row();">Add</button>
   </div>
-
 </footer>
 
 <script>
@@ -193,13 +145,11 @@ $(document).ready(function(){
      $("#popup_open").removeClass("click");
      state = "open";
    }
-
-
   });
 
 });
 </script>
-
+<script type="text/javascript" src="index.js"></script>
 
 </body>
 </html>
