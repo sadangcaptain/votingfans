@@ -1,2 +1,2 @@
 # votingfans
-voting your favorit on blockchain
+voting your favorite on blockchain
