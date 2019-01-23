@@ -1,4 +1,5 @@
-web3 = new Web3(new Web3.providers.HttpProvider("http://ksgontest.iptime.org:8545/"))
+//web3 = new Web3(new Web3.providers.HttpProvider("http://ksgontest.iptime.org:8545/"));
+web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/04441ca62c654273b83258935616ba51"));
 
 var account;
 abi = JSON.parse('[{"constant":false,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"addCandidate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"totalVotesFor","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"validCandidate","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"candidateNumber","type":"uint8"}],"name":"getCandidateName","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"votesReceived","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidateList","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getCandidatesCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"voteForCandidate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_bytes32","type":"bytes32"}],"name":"bytes32ToStr","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"canditateNames","type":"bytes32[]"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]')
@@ -39,7 +40,7 @@ function voteForCandidate(candidate) {
  //candidateName = $("#candidate").val();
  candidateName = candidate;
 console.log(candidateName);
- contractInstance.voteForCandidate(candidateName, {from: web3.eth.accounts[0], gas: 4700000}, function() {
+ contractInstance.voteForCandidate(candidateName, {from: web3.eth.accounts[23], gas: 4700000}, function() {
   let div_id = candidates[candidateName];
   $("#" + div_id).html(contractInstance.totalVotesFor.call(candidateName).toString());
  });

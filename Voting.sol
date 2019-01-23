@@ -9,7 +9,7 @@ contract Voting {
     }
 
     function voteForCandidate(bytes32 candidate) public {
-        //require(validCandidate(candidate));
+        require(validCandidate(candidate));
         votesReceived[candidate] += 1;
     }
 
@@ -24,5 +24,32 @@ contract Voting {
             }
         }
         return false;
+    }
+    
+     function addCandidate(bytes32 candidate) public {
+        if(validCandidate(candidate)==false) {
+            candidateList.push(candidate);
+        }
+    }
+    
+    function getCandidatesCount() view public returns(uint256) {
+        return candidateList.length;
+    }
+    
+    function bytes32ToStr(bytes32 _bytes32) public constant returns (string){
+
+    // string memory str = string(_bytes32);
+    // TypeError: Explicit type conversion not allowed from "bytes32" to "string storage pointer"
+    // thus we should fist convert bytes32 to bytes (to dynamically-sized byte array)
+
+    bytes memory bytesArray = new bytes(32);
+    for (uint256 i; i < 32; i++) {
+        bytesArray[i] = _bytes32[i];
+        }
+    return string(bytesArray);
+    }
+    
+    function getCandidateName(uint8 candidateNumber) view public returns(string) {
+        return bytes32ToStr(candidateList[candidateNumber]);
     }
 }
