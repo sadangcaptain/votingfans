@@ -1,2 +1,4 @@
 # votingfans
-voting your favorit on blockchain
+voting your favorite on blockchain
+
+Private Test Chain + geth + solidity + web3 + javascript
